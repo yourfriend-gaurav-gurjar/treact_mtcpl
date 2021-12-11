@@ -1,21 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-//eslint-disable-next-line
-import { css } from "styled-components/macro";
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { SectionDescription } from "components/misc/Typography.js";
-
-import defaultCardImage from "images/shield-icon.svg";
-
-import { ReactComponent as SvgDecoratorBlob3 } from "images/svg-decorator-blob-3.svg";
-
-import SupportIconImage from "images/support-icon.svg";
-import ShieldIconImage from "images/shield-icon.svg";
-import CustomizeIconImage from "images/customize-icon.svg";
-import FastIconImage from "images/fast-icon.svg";
-import ReliableIconImage from "images/reliable-icon.svg";
-import SimpleIconImage from "images/simple-icon.svg";
+import { SectionHeading, Subheading as SubheadingBase } from "./Headings";
+import { SectionDescription } from "./Typography";
+import defaultCardImage from "../images/shield-icon.svg";
+import { ReactComponent as SvgDecoratorBlob3 } from "../images/svg-decorator-blob-3.svg";
+import SupportIconImage from "../images/support-icon.svg";
+import ShieldIconImage from "../images/shield-icon.svg";
+import CustomizeIconImage from "../images/customize-icon.svg";
+import FastIconImage from "../images/fast-icon.svg";
+import ReliableIconImage from "../images/reliable-icon.svg";
+import SimpleIconImage from "../images/simple-icon.svg";
 
 const Container = tw.div`relative`;
 
