@@ -1,152 +1,184 @@
 import "tailwindcss/dist/base.css";
 import "styles/globalStyles.css";
 import React from "react";
-import { css } from "styled-components/macro"; //eslint-disable-line
-
-/*
- * This is the entry point component of this project. You can change the below exported default App component to any of
- * the prebuilt landing page components by uncommenting their import and export lines respectively.
- * See one of the landing page components to better understand how to import and render different components (Always
- * make sure if you are building your own page, the root component should be the AnimationRevealPage component. You can
- * disable the animation by using the disabled prop.
- *
- * The App component below is using React router to render the landing page that you see on the live demo website
- * and the component previews.
- *
- */
-
-/* Use AnimationRevealPage as a wrapper component for your pages if you are building a custom one yourself */
-// import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-
-/*
- * Hero section is the top most section on the page. It contains the header as well.
- * So you dont need to import headers
- * separately
- */
-
-// import Hero from "components/hero/TwoColumnWithVideo.js";
-// import Hero from "components/hero/TwoColumnWithInput.js";
-// import Hero from "components/hero/TwoColumnWithFeaturesAndTestimonial.js";
-// import Hero from "components/hero/TwoColumnWithPrimaryBackground.js";
-// import Hero from "components/hero/FullWidthWithImage.js";
-// import Hero from "components/hero/BackgroundAsImage.js";
-// import Hero from "components/hero/BackgroundAsImageWithCenteredContent.js";
-
-// import Features from "components/features/ThreeColSimple.js";
-// import Features from "components/features/ThreeColWithSideImage.js";
-// import Features from "components/features/ThreeColWithSideImageWithPrimaryBackground.js";
-// import Features from "components/features/VerticalWithAlternateImageAndText.js";
-// import Features from "components/features/DashedBorderSixFeatures";
-// import MainFeature from "components/features/TwoColWithButton.js";
-// import MainFeature from "components/features/TwoColSingleFeatureWithStats.js";
-// import MainFeature2 from "components/features/TwoColSingleFeatureWithStats2.js";
-// import MainFeature from "components/features/TwoColWithTwoHorizontalFeaturesAndButton.js";
-// import FeatureWithSteps from "components/features/TwoColWithSteps.js";
-// import FeatureStats from "components/features/ThreeColCenteredStatsPrimaryBackground.js";
-
-// import Pricing from "components/pricing/ThreePlans.js";
-// import Pricing from "components/pricing/ThreePlansWithHalfPrimaryBackground.js";
-// import Pricing from "components/pricing/TwoPlansWithDurationSwitcher.js";
-
-// import SliderCard from "components/cards/ThreeColSlider.js";
-// import TrendingCard from "components/cards/TwoTrendingPreviewCardsWithImage.js";
-// import Portfolio from "components/cards/PortfolioTwoCardsWithImage.js";
-// import TabGrid from "components/cards/TabCardGrid.js";
-
-// import Blog from "components/blogs/ThreeColSimpleWithImage.js";
-// import Blog from "components/blogs/ThreeColSimpleWithImageAndDashedBorder.js";
-// import Blog from "components/blogs/PopularAndRecentBlogPosts.js";
-// import Blog from "components/blogs/GridWithFeaturedPost.js";
-
-// import Testimonial from "components/testimonials/TwoColumnWithImage.js";
-// import Testimonial from "components/testimonials/TwoColumnWithImageAndProfilePictureReview.js";
-// import Testimonial from "components/testimonials/TwoColumnWithImageAndRating.js";
-// import Testimonial from "components/testimonials/ThreeColumnWithProfileImage.js";
-// import Testimonial from "components/testimonials/SimplePrimaryBackground.js";
-
-// import FAQ from "components/faqs/SimpleWithSideImage.js";
-// import FAQ from "components/faqs/SingleCol.js";
-// import FAQ from "components/faqs/TwoColumnPrimaryBackground.js";
-
-// import ContactUsForm from "components/forms/SimpleContactUs.js";
-// import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
-// import SubscribeNewsLetterForm from "components/forms/SimpleSubscribeNewsletter.js";
-//
-// import GetStarted from "components/cta/GetStarted.js";
-// import GetStarted from "components/cta/GetStartedLight.js";
-// import DownloadApp from "components/cta/DownloadApp.js";
-
-// import Footer from "components/footers/SimpleFiveColumn.js";
-// import Footer from "components/footers/FiveColumnWithInputForm.js";
-// import Footer from "components/footers/FiveColumnWithBackground.js";
-// import Footer from "components/footers/FiveColumnDark.js";
-// import Footer from "components/footers/MiniCenteredFooter.js";
-
-/* Ready Made Pages (from demos folder) */
-// import EventLandingPage from "demos/EventLandingPage.js";
-// import HotelTravelLandingPage from "demos/HotelTravelLandingPage.js";
-// import AgencyLandingPage from "demos/AgencyLandingPage.js";
-// import SaaSProductLandingPage from "demos/SaaSProductLandingPage.js";
-// import RestaurantLandingPage from "demos/RestaurantLandingPage.js";
-// import ServiceLandingPage from "demos/ServiceLandingPage.js";
-// import HostingCloudLandingPage from "demos/HostingCloudLandingPage.js";
-
-/* Inner Pages */
-// import LoginPage from "pages/Login.js";
-// import SignupPage from "pages/Signup.js";
-// import PricingPage from "pages/Pricing.js";
-// import AboutUsPage from "pages/AboutUs.js";
-// import ContactUsPage from "pages/ContactUs.js";
-// import BlogIndexPage from "pages/BlogIndex.js";
-// import TermsOfServicePage from "pages/TermsOfService.js";
-// import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
-
-import ComponentRenderer from "ComponentRenderer.js";
-import MainLandingPage from "MainLandingPage.js";
-import ThankYouPage from "ThankYouPage.js";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import tw from "twin.macro";
+import AnimationRevealPage from "helpers/AnimationRevealPage.js";
+import Hero from "components/hero/TwoColumnWithInput.js";
+import Features from "components/features/ThreeColWithSideImage.js";
+import MainFeature from "components/features/TwoColWithButton.js";
+import MainFeature2 from "components/features/TwoColWithTwoHorizontalFeaturesAndButton.js";
+import FeatureWithSteps from "components/features/TwoColWithSteps.js";
+import Pricing from "components/pricing/ThreePlans.js";
+import Testimonial from "components/testimonials/TwoColumnWithImageAndRating.js";
+import FAQ from "components/faqs/SingleCol.js";
+import GetStarted from "components/cta/GetStarted";
+import Footer from "components/footers/FiveColumnWithBackground.js";
+import heroScreenshotImageSrc from "images/hero-screenshot-1.png";
+import macHeroScreenshotImageSrc from "images/hero-screenshot-2.png";
+import prototypeIllustrationImageSrc from "images/prototype-illustration.svg";
+import { ReactComponent as BriefcaseIcon } from "feather-icons/dist/icons/briefcase.svg";
+import { ReactComponent as MoneyIcon } from "feather-icons/dist/icons/dollar-sign.svg";
 
 export default function App() {
-  // If you want to disable the animation just use the disabled `prop` like below on your page's component
-  // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
-
-
+  const Subheading = tw.span`uppercase tracking-widest font-bold text-primary-500`;
+  const HighlightedText = tw.span`text-primary-500`;
   return (
-    <Router>
-      <Switch>
-        <Route path="/components/:type/:subtype/:name">
-          <ComponentRenderer />
-        </Route>
-        <Route path="/components/:type/:name">
-          <ComponentRenderer />
-        </Route>
-        <Route path="/thank-you">
-          <ThankYouPage />
-        </Route>
-        <Route path="/">
-          <MainLandingPage />
-        </Route>
-      </Switch>
-    </Router>
+    <AnimationRevealPage>
+    <Hero roundedHeaderButton={true} />
+    <Features
+      subheading={<Subheading>Features</Subheading>}
+      heading={
+        <>
+          We have Amazing <HighlightedText>Service.</HighlightedText>
+        </>
+      }
+    />
+    <MainFeature
+      subheading={<Subheading>Quality Work</Subheading>}
+      imageSrc={heroScreenshotImageSrc}
+      imageBorder={true}
+      imageDecoratorBlob={true}
+    />
+    <FeatureWithSteps
+      subheading={<Subheading>STEPS</Subheading>}
+      heading={
+        <>
+          Easy to <HighlightedText>Get Started.</HighlightedText>
+        </>
+      }
+      textOnLeft={false}
+      imageSrc={macHeroScreenshotImageSrc}
+      imageDecoratorBlob={true}
+      decoratorBlobCss={tw`xl:w-40 xl:h-40 opacity-15 -translate-x-1/2 left-1/2`}
+    />
+    <MainFeature2
+      subheading={<Subheading>VALUES</Subheading>}
+      heading={
+        <>
+          We Always Abide by Our <HighlightedText>Principles.</HighlightedText>
+        </>
+      }
+      imageSrc={prototypeIllustrationImageSrc}
+      showDecoratorBlob={false}
+      features={[
+        {
+          Icon: MoneyIcon,
+          title: "Affordable",
+          description: "We promise to offer you the best rate we can - at par with the industry standard.",
+          iconContainerCss: tw`bg-green-300 text-green-800`
+        },
+        {
+          Icon: BriefcaseIcon,
+          title: "Professionalism",
+          description: "We assure you that our templates are designed and created by professional designers.",
+          iconContainerCss: tw`bg-red-300 text-red-800`
+        }
+      ]}
+    />
+    <Pricing
+      subheading={<Subheading>Pricing</Subheading>}
+      heading={
+        <>
+          Reasonable & Flexible <HighlightedText>Plans.</HighlightedText>
+        </>
+      }
+      plans={[
+        {
+          name: "Personal",
+          price: "$17.99",
+          duration: "Monthly",
+          mainFeature: "For Individuals",
+          features: ["30 Templates", "7 Landing Pages", "12 Internal Pages", "Basic Assistance"]
+        },
+        {
+          name: "Business",
+          price: "$37.99",
+          duration: "Monthly",
+          mainFeature: "For Small Businesses",
+          features: ["60 Templates", "15 Landing Pages", "22 Internal Pages", "Priority Assistance"],
+          featured: true
+        },
+        {
+          name: "Enterprise",
+          price: "$57.99",
+          duration: "Monthly",
+          mainFeature: "For Large Companies",
+          features: ["90 Templates", "27 Landing Pages", "37 Internal Pages", "Personal Assistance"]
+        }
+      ]}
+    />
+    <Testimonial
+      subheading={<Subheading>Testimonials</Subheading>}
+      heading={
+        <>
+          Our Clients <HighlightedText>Love Us.</HighlightedText>
+        </>
+      }
+      testimonials={[
+        {
+          stars: 5,
+          profileImageSrc:
+            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80",
+          heading: "Amazing User Experience",
+          quote:
+            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+          customerName: "Charlotte Hale",
+          customerTitle: "Director, Delos Inc."
+        },
+        {
+          stars: 5,
+          profileImageSrc:
+            "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=512&h=512&q=80",
+          heading: "Love the Developer Experience and Design Principles !",
+          quote:
+            "Sinor Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+          customerName: "Adam Cuppy",
+          customerTitle: "Founder, EventsNYC"
+        }
+      ]}
+    />
+    <FAQ
+      subheading={<Subheading>FAQS</Subheading>}
+      heading={
+        <>
+          You have <HighlightedText>Questions ?</HighlightedText>
+        </>
+      }
+      faqs={[
+        {
+          question: "Are all the templates easily customizable ?",
+          answer:
+            "Yes, they all are. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          question: "How long do you usually support an standalone template for ?",
+          answer:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          question: "What kind of payment methods do you accept ?",
+          answer:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          question: "Is there a subscribption service to get the latest templates ?",
+          answer:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          question: "Are the templates compatible with the React ?",
+          answer:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+          question: "Do you really support Internet Explorer 11 ?",
+          answer:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      ]}
+    />
+    <GetStarted/>
+    <Footer />
+  </AnimationRevealPage>
   );
 }
-
-// export default EventLandingPage;
-// export default HotelTravelLandingPage;
-// export default AgencyLandingPage;
-// export default SaaSProductLandingPage;
-// export default RestaurantLandingPage;
-// export default ServiceLandingPage;
-// export default HostingCloudLandingPage;
-
-// export default LoginPage;
-// export default SignupPage;
-// export default PricingPage;
-// export default AboutUsPage;
-// export default ContactUsPage;
-// export default BlogIndexPage;
-// export default TermsOfServicePage;
-// export default PrivacyPolicyPage;
-
-// export default MainLandingPage;
